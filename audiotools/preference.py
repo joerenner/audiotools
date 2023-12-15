@@ -541,6 +541,10 @@ class Samples:
 
     def get_updates(self, idx, order):
         key = self.names[idx]
+        for o in order:
+            if o not in self.samples[key]:
+                print(self.samples[key])
+                print(o)
         return [gr.update(value=str(self.samples[key][o])) for o in order]
 
     def progress(self):
